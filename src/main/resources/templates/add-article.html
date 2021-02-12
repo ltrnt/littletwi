@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add article</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<div class="container mt-10 mb-10">
+    <h2>Here you can add new article to blog.</h2>
+
+    <form action="/add" method="post" class="mt-5 mb-5">
+        <input type="text" name="title" placeholder="Title of article" class="form-control"> <br>
+        <input type="text" name="anons" placeholder="Announcement" class="form-control" > <br>
+        <textarea name="content" placeholder="Text of your article" class="form-control"></textarea> <br>
+        <button type="submit"  class="btn btn-success">Add</button>
+    </form>
+</div>
+<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Article</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+    <div class="container mt-10 mb-10">
+
+        <div class="alert alert-info mt-5">
+            <h2 th:text="${article.title}"></h2>
+            <p th:text="${article.content}"></p>
+
+            <a href="'/article/' + ${id} + '/edit'">Edit</a>
+            <a href="'/article/' + ${id} + '/delete'">delete</a>
+        </div>
+
+    </div>
+<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+</html>
