@@ -47,13 +47,12 @@ public class MainController {
     }
 
     @PostMapping("/add")
-    public String addArticlePost(@RequestParam long id, @RequestParam String title, @RequestParam String anons,
-                                 @RequestParam String content, Model model) {
-        if (id == 0) {
-            articleService.saveArticle(new Article(title, anons, content));
-        } else {
-            articleService.saveArticle(new Article(id, title, anons, content));
-        }
+    public String addArticlePost(@RequestParam long id,
+                                 @RequestParam String title,
+                                 @RequestParam String anons,
+                                 @RequestParam String content,
+                                 Model model) {
+        articleService.saveArticle(new Article(id, title, anons, content));
 
         return "redirect:/";
     }

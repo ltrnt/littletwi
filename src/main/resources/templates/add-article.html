@@ -5,16 +5,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<header th:insert="fragments/header.html :: header"> </header>
+<header th:insert="fragments/header.html :: header"></header>
 <div class="container mt-10 mb-10">
     <h2>Here you can add or edit an article.</h2>
 
     <form action="/add" method="post" class="mt-5 mb-5">
-        <input type="hidden" name="id"  th:value="${article.id}">
-        <input type="text" name="title" placeholder="Title of article" class="form-control" th:value="${article.title}"> <br>
-        <input type="text" name="anons" placeholder="Announcement" class="form-control" th:value="${article.anons}"> <br>
-        <textarea name="content" placeholder="Text of your article" class="form-control" th:text="${article.content}"></textarea> <br>
-        <button type="submit"  class="btn btn-success">Submit</button>
+        <input type="hidden" name="id" th:value="${article.id}">
+        <input type="text" name="title" placeholder="Title of article" class="form-control" th:value="${article.title}">
+        <br>
+        <input type="text" name="anons" placeholder="Announcement" class="form-control" th:value="${article.anons}">
+        <br>
+        <textarea name="content" placeholder="Text of your article" class="form-control"
+                  th:text="${article.content}"></textarea> <br>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>
 <div th:replace="fragments/footer.html :: footer"></div>
