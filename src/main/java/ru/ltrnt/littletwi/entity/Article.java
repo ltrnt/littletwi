@@ -20,6 +20,13 @@ public class Article {
     public Article() {
     }
 
+    public Article(Long id, String title, String anons, String content) {
+        this.id = id;
+        this.title = title;
+        this.anons = anons;
+        this.content = content;
+    }
+
     public Article(String title, String anons, String content) {
         this.title = title;
         this.anons = anons;

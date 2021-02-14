@@ -23,14 +23,38 @@ public class MainController {
     }
 
     @GetMapping("/add")
-    public String addArticleGet() {
+    public String addArticleGet(Model model) {
+        Article article = new Article();
+        article.setId(0L);
+        model.addAttribute("article", article);
+
         return "add-article";
     }
 
+    @GetMapping("/article/{id}/edit")
+    public String editArticleById(@PathVariable long id, Model model) {
+        Article article = articleService.getArticleById(id);
+        model.addAttribute("article", article);
+
+        return "add-article";
+    }
+
+    @GetMapping("/article/{id}/delete")
+    public String deleteArticleById(@PathVariable long id, Model model) {
+        articleService.deleteById(id);
+
+        return "redirect:/";
+    }
+
     @PostMapping("/add")
-    public String addArticlePost(@RequestParam String title, @RequestParam String anons,
+    public String addArticlePost(@RequestParam long id, @RequestParam String title, @RequestParam String anons,
                                  @RequestParam String content, Model model) {
-        articleService.saveArticle(new Article(title, anons, content));
+        if (id == 0) {
+            articleService.saveArticle(new Article(title, anons, content));
+        } else {
+            articleService.saveArticle(new Article(id, title, anons, content));
+        }
+
         return "redirect:/";
     }
 
