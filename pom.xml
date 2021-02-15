@@ -12,10 +12,8 @@
     <artifactId>littletwi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>littletwi</name>
-    <description>My little twiiter</description>
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+    <description>My little twitter</description>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
